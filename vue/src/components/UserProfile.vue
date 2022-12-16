@@ -34,7 +34,7 @@
         <h1>Hop Rank</h1>
         <img
           src="../resources/LowScore.png"
-          v-if="this.allBeers > 0 && this.allBeers < 4"
+          v-if="this.allBeers >= 0 && this.allBeers < 4"
         />
         <img
           src="../resources/MidScore.png"

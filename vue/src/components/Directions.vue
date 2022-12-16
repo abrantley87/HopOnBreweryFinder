@@ -30,15 +30,8 @@ export default {
       }
     },
 
-  watch: {
-    itemsLength (val, oldVal) {
-      console.log('length changed')
-      console.log(val, oldVal);
-      this.origin();
-      this.destionation();
-      this.addWayPoints();
-    }
-  },
+ 
+  
 
   
 
