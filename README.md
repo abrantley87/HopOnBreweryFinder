@@ -4,7 +4,10 @@ The Hop On Brewery Finder is a website that dynamically displays individual beer
 
 This project was the final capstone project at Tech Elevator Java Bootcamp and was built over the course of 2 weeks. 
 
- utilizing , Restful API, Spring Boot, JSON, PostgreSQL, JUnit testing, Google Directions API, Vue.Js, HTML, and CSS.
+<h3>Collaborators</h3>
+<a href="linkedin.com/in/abrantl">Andrew Brantley</a>
+         <a href="linkedin.com/in/michaeldoom">Michael Doom</a>
+<a href="https://www.linkedin.com/in/joel-aurelio/">Joel Rosario</a>
 
 <h3>Technologies</h3>
 <ul>
