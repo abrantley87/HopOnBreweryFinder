@@ -5,8 +5,8 @@ The Hop On Brewery Finder is a website that dynamically displays individual beer
 This project was the final capstone project at Tech Elevator Java Bootcamp and was built over the course of 2 weeks. 
 
 <h3>Collaborators</h3>
-<a href="http://www.linkedin.com/in/abrantl">Andrew Brantley</a>
-         <a href="http://www.linkedin.com/in/michaeldoom">Michael Doom</a>
+<a href="http://www.linkedin.com/in/abrantl">Andrew Brantley</a> |
+<a href="http://www.linkedin.com/in/michaeldoom">Michael Doom</a> |
 <a href="https://www.linkedin.com/in/joel-aurelio/">Joel Rosario</a>
 
 <h3>Technologies</h3>
@@ -22,6 +22,12 @@ This project was the final capstone project at Tech Elevator Java Bootcamp and w
   <li>CSS</li> 
 </ul>
 
-<ul>
-<li><img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-Passport1.PNG?raw=true"></li>
-</ul>
+<h3>Screenshots</h3>
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-homepage.PNG">
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-AllBeersList.PNG">
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-BreweryList.PNG">
+
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-Passport1.PNG">
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-Passport2.PNG">
+<img src="https://github.com/abrantley87/HopOnBreweryFinder/blob/main/screenshots/HopOn-Passport3.PNG">
+
