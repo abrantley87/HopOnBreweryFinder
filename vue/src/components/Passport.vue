@@ -4,15 +4,14 @@
       <user-profile v-if="!isLoading" :passport="fullObject" />
     </div>
 
-  
     <div class="buttons" v-if="this.beerCrawlBreweries.length > 0">
       <div id="print-button" v-on:click="printItinerary">
         <p>Print Crawl</p>
       </div>
-      <div id="view-map" v-on:click="toggleMap" v-if=!showMap>
+      <div id="view-map" v-on:click="toggleMap" v-if="!showMap">
         <p>View Map</p>
       </div>
-      <div id="view-list" v-on:click="toggleMap" v-if=showMap>
+      <div id="view-list" v-on:click="toggleMap" v-if="showMap">
         <p>View List</p>
       </div>
     </div>
@@ -43,8 +42,8 @@
             </div>
           </div>
           <div class="legend" v-show="brewery.cardOpen">
-            <p class="legend-name">Name</p>
-            <p class="legend-style">Style</p>
+            <p class="legend-name">NAME</p>
+            <p class="legend-style">STYLE</p>
             <p class="legend-abv">ABV</p>
             <p class="legend-review">RATING</p>
             <p class="legend-drank">DRANK</p>
@@ -117,9 +116,9 @@
                   {{ brewery.address }}
                 </div>
               </div>
-            </div>
-            <div class="remove-crawl" @click="removeFromCrawl(brewery)">
-              <img src="https://i.imgur.com/vdqV5fW.png" />
+              <div class="remove-crawl" @click="removeFromCrawl(brewery)">
+                <img src="https://i.imgur.com/vdqV5fW.png" />
+              </div>
             </div>
           </div>
         </div>
@@ -128,7 +127,6 @@
         </div>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -155,7 +153,7 @@ export default {
       address: "",
       breweryToOpen: "",
       showMap: false,
-      isLoading: true
+      isLoading: true,
     };
   },
 
@@ -264,7 +262,8 @@ export default {
     getBreweryAddress(brewery) {
       this.allBreweries.forEach((b) => {
         if (brewery.breweryId == b.breweryId) {
-            brewery.address=(b.streetAddress + " " + b.city + ", " + b.state + " " + b.zip);
+          brewery.address =
+            b.streetAddress + " " + b.city + ", " + b.state + " " + b.zip;
         }
       });
     },
@@ -281,7 +280,7 @@ export default {
       PassportService.breweryPassport(this.$store.state.user.id).then(
         (response) => {
           this.passport = response.data;
-          this.isLoading=false;
+          this.isLoading = false;
         }
       );
       BreweryService.listBreweries().then((response) => {
@@ -335,8 +334,8 @@ export default {
 </script>
 <style scoped>
 .entirePassport {
-  background: url("../resources/background-image.jpg")
-    no-repeat center center fixed;
+  background: url("../resources/background-image.jpg") no-repeat center center
+    fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -369,8 +368,7 @@ export default {
 .legend {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
+  justify-content: space-around;
   border-radius: 5px;
   margin: 0px 20px 0px 20px;
   height: 25px;
@@ -382,6 +380,7 @@ export default {
   box-shadow: 12px 0px 24px 0px rgba(0, 0, 0, 0.75);
 }
 
+/** */
 .legend-name {
   margin-left: 30px;
   width: 22%;
@@ -389,27 +388,29 @@ export default {
 }
 .legend-style {
   width: 15%;
- font-size: 1em;
+  font-size: 1em;
 }
 .legend-abv {
   width: 9%;
-font-size: 1em;
+  font-size: 1em;
 }
 .legend-review {
-  transform: translate(90px,0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 20%;
-
 }
 .legend-drank {
-  transform: translate(25px,0px);
-
-    width: 10%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
 }
 .legend-remove {
-   width: 10%;
-  transform: translate(5px, 0px);
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
 }
 /* Styles individual brewery tiles */
 #breweryCard {
@@ -453,41 +454,47 @@ font-size: 1em;
 }
 /*  Beer tile styling and positioning */
 .beer-name {
-  width: 28%;
+  width: 22%;
   margin-left: 30px;
   font-size: 1em;
   font-weight: bold;
 }
 .beer-style {
-  width: 20%;
-  font-size: .75em;
+  width: 15%;
+  font-size: 0.75em;
   font-style: italic;
 }
 .beer-abv {
-font-size: .75em;
-width: 20%;
-font-style: italic;
+  font-size: 0.75em;
+  width: 9%;
+  font-style: italic;
 }
 
 .review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 20%;
 }
 
 .drank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 10%;
 }
 
 .drank img {
-  display: flex;
   margin: 0 auto;
   width: 35px;
   height: auto;
-
 }
 .remove {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 10%;
-  margin-right: 20px;
-
+  /* margin-right: 20px; */
 }
 .remove img {
   float: right;
@@ -517,11 +524,6 @@ font-style: italic;
   grid-area: right-panel;
 }
 
-
-
-
-
-
 /* STYLING FOR THE BAR CRAWL LIST */
 .barCrawlList {
   margin: 36px 10px 10px 20px;
@@ -544,10 +546,9 @@ font-style: italic;
 }
 
 .brewery-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 0.5fr;
+  grid-template-areas: "reorder details remove-item";
 
   background-color: white;
   margin: 0px 8px 10px;
@@ -559,8 +560,10 @@ font-style: italic;
 .details {
   grid-area: details;
   display: flex;
+  height: 50px;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
 }
 .brewery-name {
   font-weight: bold;
@@ -582,47 +585,56 @@ font-style: italic;
 }
 
 #print-button,
-#view-map, #view-list {
+#view-map,
+#view-list {
   background-color: rgb(44, 72, 235);
   border-radius: 5px;
   width: 150px;
   height: 45px;
   margin: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   -webkit-box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 3px 0px 6px 0px rgba(0, 0, 0, 0.75);
 }
 #print-button:hover,
-#view-map:hover, #view-list:hover {
+#view-map:hover,
+#view-list:hover {
   background-color: #1d309e;
   cursor: pointer;
 }
 
-
 #print-button p,
-#view-map p, #view-list p {
+#view-map p,
+#view-list p {
   color: white;
   font-size: 1.25em;
-  display: flex;
-  margin-top: 5px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-
+.remove-crawl {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .remove-crawl img {
-    position: absolute;
+  grid-area: remove-item;
 
   width: 30px;
-  transform: translate(425px, -50px);
 }
 .reorder {
   grid-area: reorder;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0px 15px;
+  align-items: center;
+  justify-content: center;
 }
+
 #reorderUp,
 #reorderDown {
   width: 20px;
@@ -635,7 +647,4 @@ font-style: italic;
 
   /* margin: 0px auto; */
 }
-
-
-
 </style>
